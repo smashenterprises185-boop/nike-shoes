@@ -563,4 +563,571 @@
 
   <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nike 3D Sneaker Showcase</title>
+  <meta name="description" content="Interactive Nike 3D Sneaker Showcase with dynamic 3D carousel, curated collections with category filtering, limited flash drop offers, concierge contact, and full shopping cart checkout experience." />
+  <meta property="og:title" content="Nike 3D Sneaker Showcase" />
+  <meta property="og:description" content="Interactive Nike 3D Sneaker Showcase with dynamic 3D carousel, curated collections with category filtering, limited flash drop offers, concierge contact, and full shopping cart checkout experience." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER & NAVBAR -->
+  <header class="navbar">
+    <!-- Original Nike Swoosh Logo -->
+    <div class="brand" onclick="switchPage('home')">
+      <svg class="swoosh" viewBox="135.5 361.38 1000 356.39">
+        <path d="M245.8075 717.62406c-29.79588-1.1837-54.1734-9.3368-73.23459-24.4796-3.63775-2.8928-12.30611-11.5663-15.21427-15.2245-7.72958-9.7193-12.98467-19.1785-16.48977-29.6734-10.7857-32.3061-5.23469-74.6989 15.87753-121.2243 18.0765-39.8316 45.96932-79.3366 94.63252-134.0508 7.16836-8.0511 28.51526-31.5969 28.65302-31.5969.051 0-1.11225 2.0153-2.57652 4.4694-12.65304 21.1938-23.47957 46.158-29.37751 67.7703-9.47448 34.6785-8.33163 64.4387 3.34693 87.5151 8.05611 15.898 21.86731 29.6684 37.3979 37.2806 27.18874 13.3214 66.9948 14.4235 115.60699 3.2245 3.34694-.7755 169.19363-44.801 368.55048-97.8366 199.35686-53.0408 362.49439-96.4029 362.51989-96.3672.056.046-463.16259 198.2599-703.62654 301.0914-38.08158 16.2806-48.26521 20.3928-66.16827 26.6785-45.76525 16.0714-86.76008 23.7398-119.89779 22.4235z" />
+      </svg>
+    </div>
+
+    <nav class="nav-menu">
+      <button class="nav-item active" onclick="switchPage('home')">Home</button>
+      <button class="nav-item" onclick="switchPage('offers')">Offers</button>
+      <button class="nav-item" onclick="switchPage('collections')">Collections</button>
+      <button class="nav-item" onclick="switchPage('contact')">Contact</button>
+    </nav>
+
+    <div class="header-actions">
+      <!-- THEMED SEARCH CONTAINER WITH LIVE FUNCTION -->
+      <div class="search-container">
+        <div class="search-box">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="search" 
+            oninput="handleSearch(this.value)" 
+            onkeydown="handleSearchKey(event)" 
+            onfocus="handleSearchFocus()"
+          >
+          <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" style="display:none;" title="Clear">✕</button>
+        </div>
+        <div id="searchResultsDropdown" class="search-dropdown" style="display:none;"></div>
+      </div>
+      
+      <!-- Cart Icon in Header with Badge -->
+      <button class="cart-btn" id="navbarCartBtn" onclick="toggleCart()" aria-label="Shopping Cart">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main id="app">
+    <!-- PAGE 1: 3D SHOWCASE HOME -->
+    <section id="page-home" class="page-view active">
+      <div class="home-container">
+        <!-- LEFT: Metadata & Controls -->
+        <div class="product-info">
+          <h1 id="shoeTitle" class="shoe-title">Nike Impact 4</h1>
+          <div id="shoePrice" class="shoe-price">$170.64</div>
+
+          <!-- COLORS -->
+          <div class="control-group">
+            <label class="control-label">COLORS</label>
+            <div class="color-dots" id="colorPicker"></div>
+          </div>
+
+          <!-- SIZE -->
+          <div class="control-group">
+            <label class="control-label">SIZE</label>
+            <div class="size-options" id="sizePicker">
+              <button class="size-pill active" onclick="selectSize(6, this)">6</button>
+              <button class="size-pill" onclick="selectSize(7, this)">7</button>
+              <button class="size-pill" onclick="selectSize(8, this)">8</button>
+              <button class="size-pill" onclick="selectSize(9, this)">9</button>
+              <button class="size-pill" onclick="selectSize(10, this)">10</button>
+              <button class="size-pill" onclick="selectSize(11, this)">11</button>
+            </div>
+          </div>
+
+          <button id="buyBtn" class="buy-btn" onclick="buyCurrentItem()">
+            <span>Buy</span>
+          </button>
+        </div>
+
+        <!-- CENTER: Floating Sneaker & Perspective Platform -->
+        <div class="showcase-center">
+          <div class="floating-wrapper">
+            <img id="mainShoeImg" class="main-shoe" src="red nike.png" alt="Nike Sneaker" />
+            <div id="shoeBackdropGlow" class="shoe-backdrop-glow"></div>
+            <div class="shoe-shadow"></div>
+          </div>
+
+          <div class="perspective-platform">
+            <div class="platform-bar"></div>
+            <div class="platform-content">
+              <div class="thumb-group">
+                <img id="subThumb1" class="sub-thumb" src="red nike.png" alt="angle 1">
+                <img id="subThumb2" class="sub-thumb inverted" src="red nike.png" alt="angle 2">
+              </div>
+              <div class="platform-meta">
+                <span class="meta-label">MODEL CODE</span>
+                <span id="modelCode" class="meta-val">DM1124-300</span>
+                <span id="ratingVal" class="rating-text">★ 4.9 (248)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Circular Arc Carousel Selector -->
+        <div class="arc-selector">
+          <div class="arc-controls">
+            <button class="arrow-btn" onclick="prevShoe()">▲</button>
+            <button class="arrow-btn" onclick="nextShoe()">▼</button>
+          </div>
+          <div class="arc-list" id="arcList"></div>
+        </div>
+      </div>
+
+      <!-- Rainbow Ribbon Bottom Glow -->
+      <div class="rainbow-glow"></div>
+    </section>
+
+    <!-- PAGE 2: COLLECTIONS (ENHANCED WITH SCROLL OPTION) -->
+    <section id="page-collections" class="page-view">
+      <div class="modal-card max-5xl collections-container">
+        <div class="page-scroll-content">
+          <!-- HERO BANNER -->
+          <div class="collections-hero-banner">
+            <div class="hero-content">
+              <span class="badge-tag flash-badge collection-badge">
+                <span class="pulse-dot"></span> 2026 OFFICIAL LINEUP • ARCHIVE & DROPS
+              </span>
+              <h2 class="heading-large">Explore The Full Collection</h2>
+              <p class="subtitle">Precision-engineered basketball, lifestyle, and running silhouettes for every athlete.</p>
+            </div>
+
+            <!-- STAT WIDGET -->
+            <div class="collection-stat-box">
+              <span class="timer-label">CATALOG STATUS</span>
+              <div class="stat-digits">
+                <span class="stat-number">06</span>
+                <span class="stat-sub">SILHOUETTES</span>
+              </div>
+              <span class="stat-status"><span class="green-indicator">●</span> ALL DROPS LIVE</span>
+            </div>
+          </div>
+
+          <!-- CATEGORY FILTER TABS -->
+          <div class="collections-filter-bar">
+            <div class="filter-tabs-group" id="collectionFilterTabs">
+              <button class="collection-tab-pill active" onclick="filterCollection('all', this)">All Silhouettes</button>
+              <button class="collection-tab-pill" onclick="filterCollection('basketball', this)">Basketball</button>
+              <button class="collection-tab-pill" onclick="filterCollection('running', this)">Running</button>
+              <button class="collection-tab-pill" onclick="filterCollection('lifestyle', this)">Lifestyle</button>
+            </div>
+            <div class="filter-count-badge" id="collectionCountBadge">Showing 6 Models</div>
+          </div>
+
+          <!-- ENHANCED SNEAKER GRID -->
+          <div class="sneaker-grid collections-grid" id="collectionsGrid"></div>
+
+          <!-- FEATURED HIGHLIGHTS / EXTRA DETAILS SECTION -->
+          <div class="collection-extra-details">
+            <h3 class="details-section-title">Nike Innovation & Craftsmanship</h3>
+            <div class="details-features-grid">
+              <div class="feature-card">
+                <h4>Zoom Air Cushioning</h4>
+                <p>Engineered for high-energy return and instant responsiveness on court and pavement.</p>
+              </div>
+              <div class="feature-card">
+                <h4>Flywire Lockout</h4>
+                <p>Ultralight cables integrate with laces to deliver adaptive midfoot containment.</p>
+              </div>
+              <div class="feature-card">
+                <h4>Sustainable Materials</h4>
+                <p>Crafted using recycled blends as part of Nike's Move to Zero initiative.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOOTER NOTICE -->
+          <div class="footer-notice">
+            You agree to our terms & conditions / <a href="javascript:void(0)" onclick="switchPage('privacy')">privacy policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: OFFERS (ENHANCED WITH SCROLL OPTION) -->
+    <section id="page-offers" class="page-view">
+      <div class="modal-card max-5xl offers-container">
+        <div class="page-scroll-content">
+          <!-- HERO BANNER WITH COUNTDOWN -->
+          <div class="offers-hero-banner">
+            <div class="hero-content">
+              <span class="badge-tag flash-badge">
+                <span class="pulse-dot"></span> MEMBER EXCLUSIVE FLASH DROP
+              </span>
+              <h2 class="heading-large">Up to 25% Off Iconic Silhouettes</h2>
+              <p class="subtitle">Limited drop promotions on iconic Air Max and Impact editions.</p>
+            </div>
+
+            <!-- TIMER BLOCK -->
+            <div class="offer-timer-box">
+              <span class="timer-label">PROMO ENDS IN</span>
+              <div class="timer-digits">
+                <div class="time-unit"><span id="timer-hrs">08</span><small>HRS</small></div>
+                <span class="colon">:</span>
+                <div class="time-unit"><span id="timer-min">42</span><small>MIN</small></div>
+                <span class="colon">:</span>
+                <div class="time-unit"><span id="timer-sec">19</span><small>SEC</small></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ENHANCED OFFERS GRID -->
+          <div class="sneaker-grid offers-grid" id="offersGrid"></div>
+
+          <!-- PROMOTIONAL ADVANTAGES DETAILS SECTION -->
+          <div class="offers-extra-details">
+            <h3 class="details-section-title">Member Drop Perks & Policy</h3>
+            <div class="offers-perks-grid">
+              <div class="perk-card">
+                <span class="perk-icon">⚡</span>
+                <div class="perk-text">
+                  <h4>Priority Shipping</h4>
+                  <p>All flash offer orders ship with express 2-day delivery guaranteed.</p>
+                </div>
+              </div>
+              <div class="perk-card">
+                <span class="perk-icon">🛡️</span>
+                <div class="perk-text">
+                  <h4>30-Day Money Back</h4>
+                  <p>Hassle-free returns on all promotional items if sizing does not match.</p>
+                </div>
+              </div>
+              <div class="perk-card">
+                <span class="perk-icon">🏷️</span>
+                <div class="perk-text">
+                  <h4>Member Pass Code</h4>
+                  <p>Extra 10% discount applied automatically at checkout for signed-in members.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FOOTER NOTICE -->
+          <div class="footer-notice">
+            You agree to our terms & conditions / 
+            <a href="javascript:void(0)" onclick="switchPage('privacy')">privacy policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: CONTACT US (ENHANCED WITH SCROLL OPTION) -->
+    <section id="page-contact" class="page-view">
+      <div class="modal-card max-5xl contact-container">
+        <div class="page-scroll-content">
+          <!-- HERO BANNER -->
+          <div class="contact-hero-banner">
+            <div class="hero-content">
+              <span class="badge-tag flash-badge contact-badge">
+                <span class="pulse-dot"></span> 24/7 NIKE CONCIERGE & SUPPORT
+              </span>
+              <h2 class="heading-large">Connect With Nike Concierge</h2>
+              <p class="subtitle">Direct communication channel for sneaker drop inquiries, order tracking and custom fit assistance.</p>
+            </div>
+
+            <!-- STATUS BOX -->
+            <div class="contact-stat-box">
+              <span class="timer-label">AVG RESPONSE TIME</span>
+              <div class="stat-digits">
+                <span class="stat-number">&lt; 15</span>
+                <span class="stat-sub">MINUTES</span>
+              </div>
+              <span class="stat-status"><span class="green-indicator">●</span> CONCIERGE ACTIVE</span>
+            </div>
+          </div>
+
+          <div class="contact-layout">
+            <!-- LEFT: Enhanced Contact Information Cards -->
+            <div class="contact-info">
+              <div class="contact-info-card">
+                <div class="contact-icon-bubble">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-card-text">
+                  <span class="meta-label">EMAIL DIRECT INBOX</span>
+                  <p>info@nike.com</p>
+                  <small>Available 24 hours / 7 days a week</small>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon-bubble">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div class="contact-card-text">
+                  <span class="meta-label">PHONE HOTLINE</span>
+                  <p>+1 (713) 392-4910</p>
+                  <small>Toll-free Priority Assistance</small>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon-bubble">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-card-text">
+                  <span class="meta-label">FLAGSHIP HEADQUARTERS</span>
+                  <p>1073 White River Blvd</p>
+                  <small>Los Angeles, CA 90028 USA</small>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon-bubble">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                </div>
+                <div class="contact-card-text">
+                  <span class="meta-label">COMMUNITY & SOCIALS</span>
+                  <div class="social-pills-row">
+                    <a href="#" target="_blank" rel="noreferrer" class="social-pill">Twitter / X</a>
+                    <a href="#" target="_blank" rel="noreferrer" class="social-pill">Instagram</a>
+                    <a href="#" target="_blank" rel="noreferrer" class="social-pill">YouTube</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Enhanced Contact Form with Topic Selection -->
+            <div class="contact-form-side">
+              <div class="form-header-row">
+                <span class="eyebrow amber">SEND US A MESSAGE</span>
+                <span style="font-size:11px;color:rgba(255,255,255,0.4);">* Required fields</span>
+              </div>
+              <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                <div class="form-row">
+                  <input type="text" placeholder="First Name" required />
+                  <input type="text" placeholder="Last Name" required />
+                </div>
+                <div class="form-row">
+                  <input type="email" placeholder="Email Address" required />
+                  <input type="tel" placeholder="+1 555-0199" />
+                </div>
+                <textarea rows="4" placeholder="How can our concierge assist you today? *" required></textarea>
+                <button type="submit" class="gradient-submit-btn">
+                  <span>SEND MESSAGE</span>
+                  <span>→</span>
+                </button>
+              </form>
+
+              <div id="contactSuccessMsg" class="contact-success-banner">
+                ✓ Thank you! Your inquiry has been dispatched to Nike Concierge. We will reply shortly.
+              </div>
+
+              <div class="footer-notice">
+                You agree to our terms & conditions / <a href="javascript:void(0)" onclick="switchPage('privacy')">privacy policy</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADDITIONAL SUPPORT DETAILS / FAQ ACCORDION SUMMARY SECTION -->
+          <div class="contact-faq-section">
+            <h3 class="details-section-title">Frequently Asked Support Questions</h3>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <h5>How long does standard delivery take?</h5>
+                <p>Standard orders arrive in 3-5 business days. Express flash order shipping delivers within 48 hours.</p>
+              </div>
+              <div class="faq-item">
+                <h5>Can I change my order after placing it?</h5>
+                <p>Contact our concierge team within 30 minutes of placing your order for instant modifications.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5: PRIVACY POLICY -->
+    <section id="page-privacy" class="page-view">
+      <div class="modal-card max-3xl">
+        <div class="privacy-header">
+          <button class="back-link" onclick="switchPage('home')">← Back</button>
+          <h1 class="heading-large">Privacy Policy</h1>
+          <p class="updated-time">Last Updated: September 3, 2026</p>
+        </div>
+        <div class="privacy-body">
+          <p><strong>At Nike Demo Store, we respect your privacy and are committed to protecting your personal information.</strong></p>
+          <h3>Information We Collect</h3>
+          <p>We may collect your name, email, phone number, shipping address, order details, and basic website usage information.</p>
+          <h3>How We Use Your Information</h3>
+          <p>Your information may be used to process orders, provide customer support, improve our website, and send important updates.</p>
+          <h3>Data Protection</h3>
+          <p>We take reasonable measures to protect your information and do not sell or rent your personal information.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING SCROLL OPTION BUTTON (FOR DIRECT VISUAL SCROLLING) -->
+  <button id="floatingScrollBtn" class="scroll-indicator-btn" onclick="handleFloatingScroll()" style="display: none;" title="Scroll for more details">
+    <span id="floatingScrollText">Scroll for details</span>
+    <svg id="floatingScrollIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  
+  <!-- CART DRAWER -->
+  <div id="cartDrawerOverlay" class="cart-overlay" onclick="closeCart(event)">
+    <div id="cartDrawer" class="cart-drawer">
+      
+      <!-- CART VIEW STEP -->
+      <div id="cartViewStep">
+        <div class="cart-header">
+          <div class="cart-header-title">
+            <div class="cart-icon-box">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <div>
+              <h3>Your Cart</h3>
+              <span id="cartItemsSelectedCount">0 items selected</span>
+            </div>
+          </div>
+          <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+
+        <div class="cart-items" id="cartItemsContainer"></div>
+
+        <!-- Footer Summary -->
+        <div class="cart-footer" id="cartFooter">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span id="cartSubtotalVal">$0.00</span>
+          </div>
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span id="cartShippingVal" class="shipping-free">FREE</span>
+          </div>
+          <div class="summary-divider"></div>
+          <div class="summary-total">
+            <span>Total</span>
+            <span id="cartTotalVal">$0.00</span>
+          </div>
+          <button class="checkout-now-btn" onclick="openCheckout()">
+            <span>CHECKOUT NOW</span>
+            <span class="arrow-icon">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CHECKOUT SECTION -->
+      <div id="checkoutViewStep" class="checkout-step" style="display: none;">
+        <div class="cart-header">
+          <button class="back-link-btn" onclick="backToCart()">← Back</button>
+          <h3 style="font-size: 16px;">Checkout & Order</h3>
+          <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+
+        <form id="checkoutForm" onsubmit="handlePlaceOrder(event)" class="checkout-form">
+          <div class="form-section">
+            <span class="section-tag">1. CONTACT INFORMATION</span>
+            <input type="text" id="custName" placeholder="Full Name *" required />
+            <input type="email" id="custEmail" placeholder="Email Address *" required />
+            <input type="tel" id="custPhone" placeholder="Phone Number" />
+          </div>
+
+          <div class="form-section">
+            <span class="section-tag">2. SHIPPING ADDRESS</span>
+            <input type="text" id="custAddress" placeholder="Street Address *" required />
+            <input type="text" id="custCity" placeholder="City, State & ZIP Code *" required />
+          </div>
+
+          <div class="form-section">
+            <span class="section-tag">3. PAYMENT METHOD</span>
+            <div class="payment-tabs">
+              <label class="pay-option active" onclick="selectPaymentTab(this, 'card')">
+                <input type="radio" name="payment" value="card" checked style="display:none;" />
+                <span>Credit Card</span>
+              </label>
+              <label class="pay-option" onclick="selectPaymentTab(this, 'apple')">
+                <input type="radio" name="payment" value="apple" style="display:none;" />
+                <span>Apple/GPay</span>
+              </label>
+              <label class="pay-option" onclick="selectPaymentTab(this, 'cod')">
+                <input type="radio" name="payment" value="cod" style="display:none;" />
+                <span>COD</span>
+              </label>
+            </div>
+            <div id="cardFields" class="card-inputs">
+              <input type="text" placeholder="Card Number (•••• •••• •••• 4242)" />
+              <div class="form-row">
+                <input type="text" placeholder="MM/YY" />
+                <input type="text" placeholder="CVC" />
+              </div>
+            </div>
+          </div>
+
+          <div class="order-summary-box">
+            <div class="summary-line">
+              <span>Order Amount</span>
+              <span id="checkoutTotalVal">$0.00</span>
+            </div>
+          </div>
+
+          <button type="submit" class="checkout-now-btn">
+            <span id="placeOrderBtnText">PLACE ORDER</span>
+            <span class="arrow-icon">✓</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- ORDER CONFIRMATION STEP -->
+      <div id="orderSuccessStep" class="order-success-step" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h2>Order Confirmed!</h2>
+        <p>Thank you! Your Nike order has been placed and is being prepared for dispatch.</p>
+        <div class="order-receipt-box">
+          <div class="receipt-row"><span>Order ID:</span><strong id="receiptOrderId">#NK-849201</strong></div>
+          <div class="receipt-row"><span>Customer:</span><span id="receiptCustName">-</span></div>
+          <div class="receipt-row"><span>Total Paid:</span><strong id="receiptTotalVal">$0.00</strong></div>
+          <div class="receipt-row"><span>Estimated Delivery:</span><span style="color:#10b981;">2-3 Business Days</span></div>
+        </div>
+        <button class="checkout-now-btn" onclick="finishOrder()">CONTINUE EXPLORING</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+>>>>>>> 2dce974a9693a90c1a2d66cd0a9fb4b9b15e8aaa
 </html>
