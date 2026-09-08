@@ -1096,98 +1096,60 @@ body {
 }
 .receipt-row { display: flex; justify-content: space-between; }
 
-/* RESPONSIVE MEDIA QUERIES */
-@media (max-width: 1200px) {
-  .navbar { padding: 14px 28px; }
-  .nav-item { margin: 0 20px; }
-  .home-container { gap: 24px; }
-  .main-shoe { width: 400px; }
-}
-
-@media (max-width: 1024px) {
-  .nav-item { margin: 0 12px; }
-  .sneaker-grid { grid-template-columns: repeat(2, 1fr); }
-  .details-features-grid, .offers-perks-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 880px) {
-  .navbar { padding: 12px 18px; flex-wrap: wrap; gap: 12px; }
-  .nav-menu { order: 3; width: 100%; justify-content: center; gap: 8px; }
-  .nav-item { margin: 0 6px; font-size: 13px; }
-  .home-container { flex-direction: column; text-align: center; gap: 28px; }
-  .product-info { width: 100%; max-width: 440px; align-items: center; }
-  .color-dots, .size-options { justify-content: center; }
-  .showcase-center { min-height: 360px; width: 100%; }
-  .main-shoe { width: 340px; }
-  .perspective-platform { width: 100%; max-width: 340px; transform: none; }
-  .arc-selector { width: 100%; justify-content: center; flex-direction: column; }
-  .arc-controls { flex-direction: row; margin-right: 0; margin-bottom: 10px; }
-  .arrow-vertical { display: none; }
-  .arrow-horizontal { display: inline; }
-  .arc-list { flex-direction: row; overflow-x: auto; padding-bottom: 8px; max-width: 100%; }
-  .arc-item { flex-shrink: 0; width: 90px; height: 55px; }
-
-  .collections-container, .offers-container, .contact-container { max-height: 86vh; border-radius: 22px; }
-  .page-scroll-content { max-height: 86vh; padding: 28px 20px; }
-  .collections-hero-banner, .offers-hero-banner, .contact-hero-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-  .collection-stat-box, .offer-timer-box, .contact-stat-box {
-    width: auto;
-    min-width: 210px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 16px 20px;
-  }
-  .contact-layout { grid-template-columns: 1fr; gap: 28px; }
-  .details-features-grid, .offers-perks-grid, .faq-grid { grid-template-columns: 1fr; gap: 12px; }
-  .cart-drawer { max-width: 380px; }
-}
-
-@media (max-width: 540px) {
-  .navbar { padding: 10px 14px; }
-  .swoosh { width: 44px; height: 18px; }
-  .search-box input { width: 90px; font-size: 11px; }
-  .nav-menu { gap: 4px; }
-  .nav-item { margin: 0 4px; font-size: 12px; }
-  .shoe-title { font-size: 32px; }
-  .main-shoe { width: 280px; }
-  .sneaker-grid { grid-template-columns: 1fr; gap: 14px; }
-  .form-row { flex-direction: column; gap: 10px; }
-  .payment-tabs { grid-template-columns: 1fr; }
-  .page-scroll-content { padding: 20px 14px; }
-}
 /* ===========================================================
-   COMPLETE RESPONSIVE MEDIA QUERIES
+   COMPLETE RESPONSIVE MEDIA QUERIES FOR ALL DEVICES
    =========================================================== */
-
 
 /* --- TABLET LANDSCAPE / SMALL LAPTOP (≤1100px) --- */
 @media screen and (max-width: 1100px) {
-  .home-container { gap: 24px; }
-  .product-info { width: 260px; }
-  .shoe-title { font-size: 38px; }
-  .shoe-price { font-size: 24px; }
-  .main-shoe { width: 380px; }
-  .perspective-platform { width: 320px; }
-  .arc-item { width: 100px; height: 56px; }
-  .modal-card { padding: 32px; }
-  .page-scroll-content { padding: 32px; }
-  .heading-large { font-size: 28px; }
+  .home-container {
+    gap: 24px;
+  }
+  .product-info {
+    width: 260px;
+  }
+  .shoe-title {
+    font-size: 38px;
+  }
+  .shoe-price {
+    font-size: 24px;
+  }
+  .main-shoe {
+    width: 380px;
+  }
+  .perspective-platform {
+    width: 320px;
+  }
+  .arc-item {
+    width: 100px;
+    height: 56px;
+  }
+  .modal-card {
+    padding: 32px;
+  }
+  .page-scroll-content {
+    padding: 32px;
+  }
+  .heading-large {
+    font-size: 28px;
+  }
 }
-
 
 /* --- TABLET PORTRAIT (≤900px) --- */
 @media screen and (max-width: 900px) {
-  .page-view\.active {
+  .navbar {
+    padding: 14px 24px;
+  }
+  .nav-item {
+    margin: 0 16px;
+  }
+
+  .page-view.active {
     padding: 20px;
     align-items: flex-start;
   }
 
-  /* Let collections/offers/contact pages grow and scroll with the body on mobile */
+  /* Allow containers to scroll with page naturally */
   .collections-container,
   .offers-container,
   .contact-container,
@@ -1224,12 +1186,31 @@ body {
   }
 
   .main-shoe {
-    width: 400px;
+    width: 380px;
+  }
+
+  .perspective-platform {
+    width: 320px;
+    transform: none;
+    margin: 14px auto 0;
   }
 
   .arc-selector {
     width: 100%;
     justify-content: center;
+  }
+
+  .arc-controls {
+    flex-direction: row;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .arrow-vertical {
+    display: none;
+  }
+  .arrow-horizontal {
+    display: inline;
   }
 
   .arc-list {
@@ -1239,8 +1220,8 @@ body {
     padding: 8px 4px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    max-width: 100%;
   }
-
   .arc-list::-webkit-scrollbar {
     display: none;
   }
@@ -1250,45 +1231,40 @@ body {
     width: 100px;
     height: 56px;
   }
-
   .arc-item.active {
-    transform: scale(1.08);
-  }
-
-  .arc-controls {
-    flex-direction: row;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  /* Guarantee LEFT / RIGHT arrows on mobile/tablet */
-  .arc-controls .arrow-btn {
-    font-size: 0;
-    line-height: 0;
-    color: transparent;
-  }
-
-  .arc-controls .arrow-btn::before {
-    font-size: 16px;
-    line-height: 1;
-    color: #fff;
-  }
-
-  .arc-controls .arrow-btn:first-child::before {
-    content: '\25C0';
-  }
-
-  .arc-controls .arrow-btn:last-child::before {
-    content: '\25B6';
+    transform: scale(1.06);
   }
 
   .sneaker-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Contact page layout full-width */
   .contact-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
+    width: 100%;
+  }
+
+  .contact-info {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contact-info-card {
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .contact-card-text {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .social-single-line {
+    white-space: normal !important;
+    word-break: break-word;
   }
 
   .details-features-grid,
@@ -1309,48 +1285,49 @@ body {
   }
 }
 
-
-/* --- LARGE TABLET / iPHONE MAX (≤768px) --- */
+/* --- LARGE MOBILE & TABLETS (≤768px) --- */
 @media screen and (max-width: 768px) {
   .navbar {
-    padding: 14px 20px;
+    padding: 12px 18px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
+  .nav-menu {
+    gap: 8px;
+  }
   .nav-item {
-    margin: 0 16px;
+    margin: 0 10px;
     font-size: 13px;
   }
 
   .shoe-title {
     font-size: 32px;
   }
-
   .shoe-price {
     font-size: 22px;
   }
 
   .main-shoe {
-    width: 340px;
+    width: 320px;
   }
 
   .perspective-platform {
-    width: 300px;
+    width: 290px;
     padding: 10px 14px;
-    transform: rotate(-8deg);
+    transform: none;
   }
-
   .sub-thumb {
-    width: 48px;
-    height: 36px;
+    width: 46px;
+    height: 34px;
   }
 
   .modal-card {
     border-radius: 20px;
     padding: 24px;
   }
-
   .page-scroll-content {
-    padding: 26px;
+    padding: 24px;
   }
 
   .collections-container,
@@ -1362,7 +1339,6 @@ body {
   .heading-large {
     font-size: 25px;
   }
-
   .subtitle {
     font-size: 13px;
   }
@@ -1376,9 +1352,8 @@ body {
     padding: 16px;
     border-radius: 14px;
   }
-
   .grid-card img {
-    height: 100px;
+    height: 95px;
   }
 
   .details-features-grid,
@@ -1386,17 +1361,12 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .feature-card,
-  .perk-card {
-    padding: 16px;
-  }
-
   .collections-hero-banner,
   .offers-hero-banner,
   .contact-hero-banner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 18px;
   }
 
   .hero-content {
@@ -1408,50 +1378,66 @@ body {
   .contact-stat-box {
     min-width: 0;
     width: 100%;
-    padding: 16px 22px;
+    padding: 16px 20px;
+    box-sizing: border-box;
   }
 
   .stat-number {
     font-size: 26px;
   }
-
   .time-unit span {
     font-size: 24px;
   }
 
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+  .contact-info {
+    width: 100%;
+    min-width: 0;
+  }
   .contact-info-card {
     padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
   }
-
   .contact-icon-bubble {
     width: 38px;
     height: 38px;
+    flex-shrink: 0;
   }
-
   .contact-icon-bubble svg {
     width: 17px;
     height: 17px;
   }
-
+  .contact-card-text {
+    min-width: 0;
+    flex: 1;
+  }
   .contact-card-text p {
     font-size: 12.5px;
+    word-break: break-word;
+  }
+  .social-single-line {
+    white-space: normal !important;
+    word-break: break-word;
   }
 
-  .form-row {
+  .contact-form-side .form-row {
     flex-wrap: wrap;
+    gap: 10px;
   }
-
-  .form-row > input,
-  .form-row > textarea {
-    flex: 1 1 calc(50% - 6px);
-    min-width: 150px;
+  .contact-form-side .form-row > input {
+    flex: 1 1 100%;
+    min-width: 100%;
   }
 
   .cart-drawer {
     max-width: 100%;
   }
 }
-
 
 /* --- PHONES (≤540px) --- */
 @media screen and (max-width: 540px) {
@@ -1462,6 +1448,7 @@ body {
 
   .swoosh {
     width: 38px;
+    height: 16px;
     flex-shrink: 0;
   }
 
@@ -1476,7 +1463,6 @@ body {
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
-
   .nav-menu::-webkit-scrollbar {
     display: none;
   }
@@ -1492,11 +1478,9 @@ body {
     align-items: center;
     border-radius: 8px;
   }
-
   .nav-item.active::after {
     display: none;
   }
-
   .nav-item.active {
     background: rgba(255, 255, 255, 0.12);
   }
@@ -1511,20 +1495,19 @@ body {
   }
 
   .cart-btn {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
   }
-
   .cart-badge {
-    min-width: 17px;
-    height: 17px;
+    min-width: 16px;
+    height: 16px;
     font-size: 9px;
     top: -3px;
     right: -3px;
   }
 
-  .page-view\.active {
+  .page-view.active {
     padding: 14px 12px;
     min-height: auto;
   }
@@ -1546,7 +1529,6 @@ body {
     font-size: 26px;
     line-height: 1.15;
   }
-
   .shoe-price {
     font-size: 19px;
   }
@@ -1554,12 +1536,10 @@ body {
   .control-group {
     gap: 8px;
   }
-
   .color-dot {
     width: 28px;
     height: 28px;
   }
-
   .color-dots {
     gap: 10px;
     justify-content: center;
@@ -1570,7 +1550,6 @@ body {
     height: 34px;
     font-size: 11px;
   }
-
   .size-options {
     gap: 8px;
     justify-content: center;
@@ -1579,50 +1558,30 @@ body {
   .showcase-center {
     min-height: auto;
   }
-
   .main-shoe {
-    width: 270px;
+    width: 260px;
   }
-
   .shoe-shadow {
-    width: 190px;
+    width: 180px;
   }
 
   .perspective-platform {
     width: 250px;
     padding: 10px 12px;
-    transform: rotate(-6deg);
+    transform: none;
     margin: 12px auto 0;
   }
-
   .sub-thumb {
     width: 40px;
     height: 30px;
   }
-
   .thumb-group {
     gap: 6px;
   }
 
-  .platform-meta {
-    font-size: 10px;
-  }
-
-  .meta-label {
-    font-size: 8px;
-  }
-
-  .meta-val {
-    font-size: 10px;
-  }
-
-  .rating-text {
-    font-size: 10px;
-  }
-
   .buy-btn {
     width: 200px;
-    height: 48px;
+    height: 46px;
     font-size: 15px;
     border-radius: 24px;
     margin: 0 auto;
@@ -1631,29 +1590,24 @@ body {
   .arc-selector {
     margin-top: 12px;
   }
-
   .arc-item {
     flex: 0 0 80px;
     width: 80px;
     height: 46px;
     border-radius: 10px;
   }
-
   .arrow-btn {
     width: 32px;
     height: 32px;
-    font-size: 12px;
   }
 
   .modal-card {
     padding: 16px;
     border-radius: 16px;
   }
-
   .page-scroll-content {
     padding: 16px;
   }
-
   .collections-container,
   .offers-container,
   .contact-container {
@@ -1663,11 +1617,9 @@ body {
   .heading-large {
     font-size: 22px;
   }
-
   .subtitle {
     font-size: 12px;
   }
-
   .badge-tag {
     font-size: 9px;
     padding: 5px 10px;
@@ -1679,117 +1631,10 @@ body {
   }
 
   .grid-card {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 12px;
-    gap: 8px;
-    text-align: left;
-    align-items: center;
+    padding: 14px;
   }
-
-  .grid-card > h4 {
-    width: calc(100% - 100px);
-    font-size: 13px;
-    line-height: 1.3;
-    margin: 0;
-    order: 2;
-  }
-
-  .card-image-wrap {
-    width: 90px;
-    padding-top: 0;
-    flex-shrink: 0;
-    order: 1;
-  }
-
   .grid-card img {
-    height: 65px;
-  }
-
-  .card-color-swatches {
-    order: 3;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .card-meta-row {
-    order: 4;
-    font-size: 10px;
-  }
-
-  .card-actions-row {
-    order: 5;
-    width: 100%;
-  }
-
-  .grid-btn,
-  .view-3d-btn {
-    font-size: 12px;
-    padding: 10px 8px;
-    min-height: 40px;
-  }
-
-  .card-category-tag,
-  .card-rating-tag,
-  .card-discount-tag {
-    font-size: 8px;
-    padding: 3px 7px;
-    top: 8px;
-  }
-
-  .card-category-tag {
-    left: 8px;
-  }
-
-  .card-rating-tag {
-    right: 8px;
-  }
-
-  .card-discount-tag {
-    left: 8px;
-  }
-
-  /* Pull overlay tags into normal flow on mobile
-     so they can't cover shoe names/prices */
-  .card-category-tag,
-  .card-rating-tag,
-  .card-discount-tag {
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
-  }
-
-  .card-category-tag {
-    order: -3;
-  }
-
-  .card-rating-tag {
-    order: -2;
-  }
-
-  .card-discount-tag {
-    order: -1;
-    flex-basis: 100%;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 6px;
-  }
-
-  .details-section-title {
-    font-size: 16px;
-    margin-top: 26px;
-    padding-top: 22px;
-  }
-
-  .feature-card h4,
-  .perk-text h4 {
-    font-size: 12.5px;
-  }
-
-  .feature-card p,
-  .perk-text p {
-    font-size: 11.5px;
+    height: 90px;
   }
 
   .collections-filter-bar {
@@ -1797,72 +1642,78 @@ body {
     align-items: stretch;
     gap: 10px;
   }
-
   .filter-tabs-group {
     justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
   }
-
   .collection-tab-pill {
-    padding: 8px 14px;
+    padding: 7px 12px;
     font-size: 11px;
+    white-space: nowrap;
   }
-
   .filter-count-badge {
-    font-size: 10px;
+    font-size: 11px;
     text-align: center;
   }
 
+  /* Contact page full-width card fitting on mobile */
   .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
+    width: 100%;
   }
-
+  .contact-info {
+    width: 100%;
+    min-width: 0;
+  }
   .contact-info-card {
     padding: 12px;
     gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
   }
-
   .contact-icon-bubble {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
   }
-
   .contact-icon-bubble svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
   }
-
+  .contact-card-text {
+    min-width: 0;
+    flex: 1;
+  }
   .contact-card-text p {
-    font-size: 11px;
+    font-size: 12px;
+    word-break: break-word;
   }
-
   .contact-card-text small {
     font-size: 10px;
+    word-break: break-word;
+  }
+  .social-single-line {
+    font-size: 11.5px !important;
+    white-space: normal !important;
+    word-break: break-word;
   }
 
-  .social-pill {
-    font-size: 10px;
-    padding: 6px 10px;
-    min-height: 34px;
-    display: inline-flex;
-    align-items: center;
+  .contact-form-side .form-row {
+    flex-direction: column;
+    gap: 10px;
   }
-
-  .form-row > input,
-  .form-row > textarea {
+  .contact-form-side .form-row > input {
     min-width: 100%;
-    flex: 1 1 100%;
+    width: 100%;
   }
-
+  .contact-form-side input,
   textarea {
-    font-size: 12px;
-    min-height: 80px;
-  }
-
-  .contact-form-side input {
     font-size: 13px;
-    padding: 11px 14px;
+    padding: 11px 13px;
   }
-
   .gradient-submit-btn {
     padding: 13px 20px;
     font-size: 12px;
@@ -1870,765 +1721,187 @@ body {
     min-height: 46px;
   }
 
-  .faq-item {
-    padding: 14px;
-  }
-
-  .faq-item h5 {
-    font-size: 12.5px;
-  }
-
-  .faq-item p {
-    font-size: 11.5px;
-  }
-
+  /* CART & CHECKOUT FIXES FOR MOBILE */
   .cart-drawer {
     max-width: 100%;
+    width: 100%;
   }
-
   .cart-header {
     padding: 16px;
   }
-
-  .cart-header-title h3 {
-    font-size: 15px;
-  }
-
-  .cart-icon-box {
-    width: 36px;
-    height: 36px;
-  }
-
-  .close-btn {
-    min-width: 36px;
-    min-height: 36px;
-    padding: 8px;
-    font-size: 16px;
-  }
-
   .cart-items {
     padding: 14px;
   }
-
-  .cart-item-card {
-    padding: 10px;
-    gap: 10px;
-    border-radius: 14px;
-  }
-
-  .cart-item-img {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-  }
-
-  .cart-item-title {
-    font-size: 12px;
-  }
-
-  .cart-item-meta {
-    font-size: 10px;
-  }
-
-  .cart-item-price {
-    font-size: 13px;
-  }
-
-  .cart-item-actions {
-    height: 52px;
-  }
-
-  .qty-pill {
-    padding: 4px 8px;
-    gap: 6px;
-  }
-
-  .qty-pill button {
-    font-size: 13px;
-    min-width: 26px;
-    min-height: 26px;
-  }
-
-  .trash-btn {
-    min-width: 26px;
-    min-height: 26px;
-    font-size: 14px;
-  }
-
   .cart-footer {
     padding: 16px;
   }
-
-  .summary-total {
-    font-size: 15px;
-  }
-
-  .checkout-now-btn {
-    padding: 15px;
-    font-size: 12px;
-    min-height: 48px;
-  }
-
   .checkout-form {
     padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  .checkout-form input {
-    padding: 12px 14px;
-    font-size: 13px;
+  .payment-tabs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: 100%;
   }
-
   .pay-option {
-    padding: 12px 4px;
-    font-size: 12px;
+    padding: 10px 8px;
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  .order-success-step {
-    padding: 24px 16px;
+  .card-inputs {
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  .success-icon {
-    width: 56px;
-    height: 56px;
-    font-size: 28px;
+  .card-inputs input {
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  .order-success-step h2 {
-    font-size: 18px;
+  /* Keep MM/YY and CVC side-by-side fitting 50% cleanly */
+  .card-inputs .form-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
-
-  .order-success-step p {
-    font-size: 12px;
-  }
-
-  .offer-pricing .current-price {
-    font-size: 18px;
-  }
-
-  .offer-pricing .old-price {
-    font-size: 12px;
+  .card-inputs .form-row > input {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
-
 
 /* --- SMALL PHONES (≤400px) --- */
 @media screen and (max-width: 400px) {
   .navbar {
-    padding: 8px 8px;
-    gap: 4px;
+    padding: 8px;
   }
-
   .swoosh {
     width: 32px;
   }
-
-  .nav-menu {
-    gap: 3px;
-  }
-
   .nav-item {
     font-size: 10px;
-    padding: 6px 6px;
-    margin: 0;
+    padding: 5px 6px;
     min-height: 30px;
   }
 
-  .cart-btn {
-    width: 34px;
-    height: 34px;
-  }
-
   .shoe-title {
-    font-size: 23px;
+    font-size: 22px;
   }
-
   .shoe-price {
     font-size: 17px;
   }
-
   .main-shoe {
-    width: 225px;
+    width: 220px;
   }
-
-  .shoe-shadow {
-    width: 160px;
-  }
-
   .perspective-platform {
-    width: 215px;
+    width: 220px;
     padding: 8px 10px;
-    border-radius: 14px;
-  }
-
-  .sub-thumb {
-    width: 34px;
-    height: 26px;
   }
 
   .buy-btn {
     width: 180px;
-    height: 44px;
+    height: 42px;
     font-size: 14px;
   }
-
   .arc-item {
     flex: 0 0 70px;
     width: 70px;
     height: 42px;
   }
 
-  .arrow-btn {
-    width: 30px;
-    height: 30px;
-  }
-
   .heading-large {
-    font-size: 20px;
+    font-size: 19px;
   }
-
-  .modal-card {
-    padding: 14px;
-    border-radius: 14px;
-  }
-
+  .modal-card,
   .page-scroll-content {
-    padding: 14px;
+    padding: 12px;
   }
 
-  .grid-card {
+  .contact-info-card {
     padding: 10px;
-  }
-
-  .grid-card img {
-    height: 55px;
-  }
-
-  .grid-card > h4 {
-    font-size: 12px;
-  }
-
-  .card-meta-row {
-    font-size: 9px;
-  }
-
-  .swatch-dot {
-    width: 13px;
-    height: 13px;
-  }
-
-  .color-dot {
-    width: 26px;
-    height: 26px;
-  }
-
-  .size-pill {
-    width: 30px;
-    height: 30px;
-    font-size: 10px;
-  }
-
-  .cart-item-card {
-    padding: 8px;
     gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
   }
-
-  .cart-item-img {
-    width: 44px;
-    height: 44px;
+  .contact-card-text {
+    min-width: 0;
+    flex: 1;
   }
-
-  .cart-item-title {
-    font-size: 11px;
-  }
-
-  .cart-item-price {
-    font-size: 12px;
-  }
-
-  .close-btn {
-    font-size: 15px;
-  }
-
   .contact-card-text p {
-    font-size: 10px;
+    font-size: 10.5px;
     word-break: break-word;
   }
-
-  .contact-card-text small {
-    font-size: 9px;
-  }
-
-  .time-unit span {
-    font-size: 20px;
+  .social-single-line {
+    font-size: 10px !important;
+    white-space: normal !important;
+    word-break: break-word;
   }
 
   .stat-number {
     font-size: 22px;
   }
+  .time-unit span {
+    font-size: 20px;
+  }
 
-  .collection-tab-pill {
-    padding: 7px 12px;
-    font-size: 10px;
+  /* Ensure card inputs fit seamlessly on extra small devices */
+  .card-inputs .form-row {
+    gap: 6px !important;
+  }
+  .card-inputs .form-row > input {
+    padding: 10px 10px !important;
+    font-size: 11px !important;
   }
 }
 
-
-/* --- EXTRA SMALL PHONES (≤360px) --- */
-@media screen and (max-width: 360px) {
-  .navbar {
-    padding: 7px 6px;
-    gap: 3px;
-  }
-
-  .swoosh {
-    width: 28px;
-  }
-
-  .nav-item {
-    font-size: 9.5px;
-    padding: 5px 4px;
-    min-height: 28px;
-  }
-
-  .cart-btn {
-    width: 32px;
-    height: 32px;
-  }
-
-  .cart-badge {
-    min-width: 15px;
-    height: 15px;
-    font-size: 8px;
-  }
-
-  .shoe-title {
-    font-size: 21px;
-  }
-
-  .shoe-price {
-    font-size: 16px;
-  }
-
-  .main-shoe {
-    width: 200px;
-  }
-
-  .shoe-shadow {
-    width: 145px;
-  }
-
-  .perspective-platform {
-    width: 195px;
-    padding: 7px 8px;
-  }
-
-  .sub-thumb {
-    width: 30px;
-    height: 23px;
-  }
-
-  .buy-btn {
-    width: 165px;
-    height: 42px;
-    font-size: 13px;
-  }
-
-  .arc-item {
-    flex: 0 0 62px;
-    width: 62px;
-    height: 38px;
-  }
-
-  .heading-large {
-    font-size: 18px;
-  }
-
-  .modal-card {
-    padding: 12px;
-    border-radius: 12px;
-  }
-
-  .page-scroll-content {
-    padding: 12px;
-  }
-
-  .grid-card img {
-    height: 50px;
-  }
-
-  .grid-card > h4 {
-    font-size: 11px;
-  }
-
-  .swatch-dot {
-    width: 11px;
-    height: 11px;
-  }
-
-  .color-dot {
-    width: 24px;
-    height: 24px;
-  }
-
-  .size-pill {
-    width: 28px;
-    height: 28px;
-    font-size: 9px;
-  }
-
-  .badge-tag {
-    font-size: 8px;
-    padding: 4px 8px;
-  }
-
-  .subtitle {
-    font-size: 11px;
-  }
-
-  .grid-btn,
-  .view-3d-btn {
-    font-size: 11px;
-  }
-}
-
-
-/* --- LAPTOP L / LARGE DESKTOP (≥1400px) --- */
+/* --- LARGE SCREENS (≥1400px) --- */
 @media screen and (min-width: 1400px) {
   .home-container {
     max-width: 1640px;
     gap: 56px;
   }
-
   .product-info {
     width: 340px;
     gap: 26px;
   }
-
   .shoe-title {
     font-size: 50px;
   }
-
   .shoe-price {
     font-size: 30px;
   }
-
   .main-shoe {
-    width: 540px;
+    width: 520px;
   }
-
   .perspective-platform {
-    width: 440px;
-    padding: 16px 22px;
+    width: 420px;
+    padding: 16px 20px;
   }
-
-  .sub-thumb {
-    width: 66px;
-    height: 50px;
-  }
-
   .arc-item {
     width: 126px;
     height: 72px;
   }
-
-  .modal-card {
-    padding: 48px;
-  }
-
+  .modal-card,
   .page-scroll-content {
     padding: 48px;
   }
-
   .max-5xl {
     max-width: 1200px;
   }
-
   .heading-large {
     font-size: 40px;
   }
-
-  .subtitle {
-    font-size: 15px;
-  }
-
-  .grid-card {
-    padding: 22px;
-  }
-
-  .grid-card img {
-    height: 125px;
-  }
-
-  .grid-card > h4 {
-    font-size: 15px;
-  }
-
   .sneaker-grid {
-    gap: 26px;
+    gap: 24px;
   }
 }
 
-
-/* --- 4K / ULTRA-WIDE (≥2560px) --- */
-@media screen and (min-width: 2560px) {
-  .navbar {
-    padding: 24px 80px;
-  }
-
-  .swoosh {
-    width: 76px;
-    height: 32px;
-  }
-
-  .nav-item {
-    font-size: 18px;
-    margin: 0 60px;
-  }
-
-  .search-box {
-    height: 40px;
-    padding: 8px 20px;
-  }
-
-  .search-box input {
-    font-size: 16px;
-    width: 200px;
-  }
-
-  .cart-btn {
-    width: 48px;
-    height: 48px;
-  }
-
-  .home-container {
-    max-width: 2200px;
-    gap: 80px;
-  }
-
-  .product-info {
-    width: 440px;
-    gap: 32px;
-  }
-
-  .shoe-title {
-    font-size: 64px;
-  }
-
-  .shoe-price {
-    font-size: 38px;
-  }
-
-  .main-shoe {
-    width: 660px;
-  }
-
-  .perspective-platform {
-    width: 540px;
-    padding: 22px 28px;
-  }
-
-  .sub-thumb {
-    width: 84px;
-    height: 64px;
-  }
-
-  .arc-item {
-    width: 150px;
-    height: 84px;
-  }
-
-  .modal-card {
-    padding: 64px;
-  }
-
-  .page-scroll-content {
-    padding: 64px;
-  }
-
-  .max-5xl {
-    max-width: 1500px;
-  }
-
-  .heading-large {
-    font-size: 52px;
-  }
-
-  .subtitle {
-    font-size: 18px;
-  }
-
-  .sneaker-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-  }
-
-  .grid-card {
-    padding: 26px;
-  }
-
-  .grid-card img {
-    height: 170px;
-  }
-
-  .grid-card > h4 {
-    font-size: 17px;
-  }
-
-  .details-features-grid,
-  .offers-perks-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .contact-layout {
-    gap: 56px;
-  }
-
-  .cart-drawer {
-    max-width: 500px;
-  }
-
-  .stat-number {
-    font-size: 40px;
-  }
-
-  .time-unit span {
-    font-size: 34px;
-  }
-}
-
-
-/* --- LANDSCAPE PHONES / SHORT VIEWPORTS --- */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-  .page-view\.active {
-    padding: 8px 16px;
-    min-height: auto;
-  }
-
-  .home-container {
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .product-info {
-    width: 220px;
-    gap: 12px;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .shoe-title {
-    font-size: 22px;
-  }
-
-  .shoe-price {
-    font-size: 16px;
-  }
-
-  .color-dot {
-    width: 24px;
-    height: 24px;
-  }
-
-  .size-pill {
-    width: 28px;
-    height: 28px;
-    font-size: 10px;
-  }
-
-  .buy-btn {
-    width: 130px;
-    height: 38px;
-    font-size: 12px;
-  }
-
-  .showcase-center {
-    min-height: auto;
-    flex: 1;
-  }
-
-  .main-shoe {
-    width: 230px;
-  }
-
-  .perspective-platform {
-    width: 205px;
-    padding: 6px 10px;
-    transform: rotate(-6deg);
-  }
-
-  .sub-thumb {
-    width: 32px;
-    height: 24px;
-  }
-
-  .arc-item {
-    width: 64px;
-    height: 38px;
-  }
-
-  .arc-list {
-    gap: 8px;
-  }
-
-  .arc-controls {
-    gap: 10px;
-  }
-
-  .rainbow-glow {
-    height: 60px;
-  }
-}
-
-
-/* --- VERY SHORT VIEWPORTS (≤400px height) --- */
-@media screen and (max-height: 400px) {
-  .page-view\.active {
-    padding: 6px 12px;
-    min-height: auto;
-  }
-
-  .navbar {
-    padding: 6px 12px;
-  }
-
-  .home-container {
-    gap: 12px;
-  }
-
-  .product-info {
-    gap: 8px;
-  }
-
-  .shoe-title {
-    font-size: 19px;
-  }
-
-  .shoe-price {
-    font-size: 14px;
-  }
-
-  .showcase-center {
-    min-height: auto;
-  }
-
-  .main-shoe {
-    width: 175px;
-  }
-
-  .perspective-platform {
-    width: 175px;
-    padding: 4px 8px;
-    transform: rotate(-4deg);
-    margin-top: 5px;
-  }
-
-  .arc-selector {
-    display: none;
-  }
-}
-
-
-/* --- REDUCED MOTION ACCESSIBILITY --- */
+/* --- ACCESSIBILITY & HOVER --- */
 @media (prefers-reduced-motion: reduce) {
   .floating-wrapper,
   .pulse-dot {
@@ -2636,119 +1909,20 @@ body {
   }
 }
 
-
-/* --- TOUCH DEVICES: NO STICKY HOVER --- */
 @media (hover: hover) and (pointer: fine) {
   .grid-btn:hover {
     background: rgba(16, 185, 129, 0.2);
     color: #10b981;
   }
-
   .view-3d-btn:hover {
     background: rgba(59, 130, 246, 0.18);
     color: #93c5fd;
   }
-
   .offer-claim-btn:hover {
     background: rgba(244, 63, 94, 0.25);
     color: #fff;
   }
-
   .arc-item:hover {
     border-color: rgba(255, 255, 255, 0.4);
-  }
-}
-
-
-/* ===========================================================
-   FIX: FIRST 3 COLLECTION CARDS ONLY
-   ===========================================================
-
-   This ONLY changes the first three sneaker cards on phones.
-   The shoe image is placed on the LEFT and the title is placed
-   directly beside it, matching the layout of the last cards.
-   =========================================================== */
-
-@media screen and (max-width: 540px) {
-
-  .sneaker-grid > .grid-card:nth-child(-n+3) {
-    display: grid;
-    grid-template-columns: 90px minmax(0, 1fr);
-    align-items: center;
-    column-gap: 8px;
-    row-gap: 8px;
-  }
-
-  /* Category tag */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-category-tag {
-    grid-column: 1;
-    grid-row: 1;
-    width: max-content;
-    order: unset;
-  }
-
-  /* Rating badge */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-rating-tag {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
-    width: max-content;
-    order: unset;
-  }
-
-  /* Shoe image — LEFT SIDE */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-image-wrap {
-    grid-column: 1;
-    grid-row: 2;
-    width: 90px;
-    padding-top: 0;
-    margin: 0;
-    flex-shrink: 0;
-    position: static !important;
-    order: unset;
-  }
-
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-image-wrap img {
-    position: static !important;
-    display: block;
-    width: 100%;
-    height: 65px;
-    object-fit: contain;
-  }
-
-  /* Shoe title — RIGHT SIDE of image */
-  .sneaker-grid > .grid-card:nth-child(-n+3) > h4 {
-    grid-column: 2;
-    grid-row: 2;
-    width: auto;
-    margin: 0;
-    padding: 0;
-    text-align: left;
-    align-self: center;
-    order: unset;
-  }
-
-  /* Color swatches */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-color-swatches {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    width: 100%;
-    order: unset;
-  }
-
-  /* Product meta / price */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-meta-row {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    width: 100%;
-    order: unset;
-  }
-
-  /* Buttons */
-  .sneaker-grid > .grid-card:nth-child(-n+3) .card-actions-row {
-    grid-column: 1 / -1;
-    grid-row: 5;
-    width: 100%;
-    order: unset;
   }
 }
