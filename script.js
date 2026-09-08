@@ -532,10 +532,6 @@ function renderCollections() {
     const card = document.createElement('div');
     card.className = 'grid-card';
     
-    const colorsHtml = s.colors.map(c => 
-      `<span class="swatch-dot" style="background-color:${c.hex}" title="${c.name}"></span>`
-    ).join('');
-
     card.innerHTML = `
       <div class="card-category-tag">${s.category}</div>
       <div class="card-rating-tag">★ ${s.rating.split(' ')[0]}</div>
@@ -545,10 +541,6 @@ function renderCollections() {
       </div>
 
       <h4>${s.name}</h4>
-      
-      <div class="card-color-swatches">
-        ${colorsHtml}
-      </div>
 
       <div class="card-meta-row">
         <span>${s.modelCode}</span>
